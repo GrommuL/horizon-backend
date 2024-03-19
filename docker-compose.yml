@@ -7,8 +7,8 @@ services:
     ports:
       - '5432:5432'
     environment:
-      POSTGRES_USER: grommul
-      POSTGRES_PASSWORD: 123
+      POSTGRES_USER: horizon
+      POSTGRES_PASSWORD: horizon
       POSTGRES_DB: horizon-chat
     volumes:
       - my_postgres_data:/var/lib/postgresql/data
