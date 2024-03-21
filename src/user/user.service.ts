@@ -32,4 +32,15 @@ export class UserService {
 	async searchUsers(fullname: string, userId: string) {
 		return this.database.user.findMany({ where: { fullname: { contains: fullname }, id: { not: userId } } })
 	}
+
+	async getUsersOfChatroom(chatroomId: string) {
+		return this.database.user.findMany({
+			where: { chatrooms: { some: { id: chatroomId } } },
+			orderBy: { createdAt: 'desc' }
+		})
+	}
+
+	async getUser(userId: string) {
+		return this.database.user.findUnique({ where: { id: userId } })
+	}
 }
